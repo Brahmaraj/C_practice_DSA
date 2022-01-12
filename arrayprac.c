@@ -46,7 +46,7 @@ void optionSelect(struct Array *array){
         binarySearch(array,val);
         break;
     case (6):
-        printf("Value is %d\n",recursiveBinarySeach(array,val,0,array->length-1));
+        recursiveBinarySeach(array,val,0,array->length-1);
         optionSelect(array);
         break;
     case (7)://break out
