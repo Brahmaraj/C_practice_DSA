@@ -6,9 +6,10 @@ void rangeEven(int n,int i){
         printf("%d ",i);
         rangeEven(n,i+2);
     };
+    printf("\n");
 }
 
-int main(){
+int main(){1
     int n;
     int num;
     scanf("%d",&n);
