@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 int recursiveSum(long long num,long long sum){
-    int i;
+    long long i;
     sum+=num;
     if(num%2==0 && num>=1){
         i = num/2;
@@ -14,6 +14,7 @@ int recursiveSum(long long num,long long sum){
         i = (3*num)+1;
         sum = recursiveSum(i,sum);
     }
+    
     return sum;
 }
 
