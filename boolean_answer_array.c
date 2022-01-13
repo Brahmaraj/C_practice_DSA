@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int studentRow(int **arr,int row,int col){
-    int i,compare,row_count,max=0;
+    int i,compare=0,row_count,max=0;
     for(i=0;i<row;i++){
             for(int j=0;j<col;j++){
                 max += arr[i][j];
@@ -19,7 +19,6 @@ int studentRow(int **arr,int row,int col){
             return -1;
         return row_count;
 }
-
 int main(){
     int n;
     int row,col;
