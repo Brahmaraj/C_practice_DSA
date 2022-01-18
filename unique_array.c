@@ -6,30 +6,29 @@
 
 struct Array {
     int *arr;
-    int length;
+    long long length;
 };
 
 int countUniqe(struct Array old_array){
     struct Array new_array;
-    new_array.length = old_array.length;
+    new_array.length = 1;
     new_array.arr[0] = old_array.arr[0];
-    int j=0,k=1;
-    for(int i=0;i<old_array.length;i++){
-        int j = old_array.arr[j];
-        new_array.arr[i]=old_array.arr[j];
-        for(int i=0;i<k;i++){
-            if(new_array.arr[i]==new_array.arr[k])
-                return k;
-            k++;
+    int j,i;
+    for(i=1;i<old_array.length;i++){
+        new_array.arr[i]=old_array.arr[(new_array.arr[i-1])];
+        new_array.length++;
+        for(j=0;j<new_array.length;j++){
+            if(new_array.arr[j]==new_array.arr[new_array.length])
+                return new_array.length;
         }
     }
-    return old_array.length;
+    return new_array.length;
 };
 
 int main(){
     int n;
     struct Array old_array;
-    scanf("%d",&n);
+    scanf("%lld",&n);
     while(n--){
         scanf("%d",&old_array.length);
         old_array.arr = (int *)malloc(old_array.length*sizeof(int));
