@@ -29,7 +29,7 @@ int main(){
     int n;
     struct Array old_array;
     scanf("%lld",&n);
-    for(int i=0;i<n;i++){
+    while(n--){
         scanf("%d",&old_array.length);
         old_array.arr = (int *)malloc(old_array.length*sizeof(int));
         for(int i=0;i<old_array.length;i++){
