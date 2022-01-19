@@ -1,16 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    int array[] = {1,2,3,4,5,7,8,9,10};
-    int l = 1;
-    int h = 10;
-    int size=9;
-    int sum = h*(h+1)/2;
+struct Array {
+    int *arr;
+    int size;
+};
+
+int missingOneElement(struct Array array){
+    int high = array.arr[array.size-1];
+    int acutal_sum = high*(high+1)/2;
     int arr_sum = 0;
-    for(int i=0;i<size;i++){
-        arr_sum += array [i];
+    for(int i=0;i<array.size;i++){
+        arr_sum += array.arr[i];
     }
-    printf("Missing no is :%d\n",(sum-arr_sum));
+    return (acutal_sum - arr_sum);
+}
+
+
+int main(){
+    struct Array array;
+    printf("Enter array size\n");
+    scanf("%d",&array.size);
+    array.arr = (int *)malloc(array.size*sizeof(int));
+    for(int i=0;i<array.size;i++){
+        scanf("%d",&array.arr[i]);
+    }
+    
+    printf("Missing no is :%d\n",missingOneElement(array));
     return 0;
 }
