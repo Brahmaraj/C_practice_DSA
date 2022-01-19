@@ -26,17 +26,23 @@ void missingMultipleElements(struct Array array){
     }
 }
 
-void missingElementsHash(struct Array array,int start,int end){
+void missingElementsHash(struct Array array,int last_element){
     struct Array hash;
-    hash.size = end;
+    hash.size = last_element;
     hash.arr = (int *)malloc(hash.size*sizeof(int));
-    hash.arr[end] = {0};
-    for(int i=0;i<hash.size;i++){
-        printf("%d ",hash.arr[i]);
+    memset(hash.arr , 0 , sizeof(int)*hash.size);//using memset to initialize all elements to 0
+    for(int i=0;i<array.size;i++){
+        hash.arr[array.arr[i]]++;
     }
+    for(int i=1;i<hash.size;i++){
+        if(hash.arr[i]==0)
+            printf("%d\n",i);
+    }
+    free(hash.arr);
 }
 
 int main(){
+    int last_ele;
     struct Array array;
     printf("Enter array size\n");
     scanf("%d",&array.size);
@@ -46,8 +52,10 @@ int main(){
     }
     
     // printf("Missing no is :%d\n",missingOneElement(array));
+    printf("Enter the Length\n");
+    scanf("%d",&last_ele);
     printf("Missing Elements \n");
-    missingElementsHash(array,1,12);
+    missingElementsHash(array,last_ele);
     //missingMultipleElements(array);
     return 0;
 }
