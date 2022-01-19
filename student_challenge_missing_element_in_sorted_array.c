@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 struct Array {
     int *arr;
     int size;
@@ -26,6 +26,16 @@ void missingMultipleElements(struct Array array){
     }
 }
 
+void missingElementsHash(struct Array array,int start,int end){
+    struct Array hash;
+    hash.size = end;
+    hash.arr = (int *)malloc(hash.size*sizeof(int));
+    hash.arr[end] = {0};
+    for(int i=0;i<hash.size;i++){
+        printf("%d ",hash.arr[i]);
+    }
+}
+
 int main(){
     struct Array array;
     printf("Enter array size\n");
@@ -37,6 +47,7 @@ int main(){
     
     // printf("Missing no is :%d\n",missingOneElement(array));
     printf("Missing Elements \n");
-    missingMultipleElements(array);
+    missingElementsHash(array,1,12);
+    //missingMultipleElements(array);
     return 0;
 }
