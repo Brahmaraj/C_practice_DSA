@@ -16,6 +16,15 @@ int missingOneElement(struct Array array){
     return (acutal_sum - arr_sum);
 }
 
+void missingMultipleElements(struct Array array){
+    int diff = array.arr[0];//subtracting first index with first element that diff is our first element
+    for(int i=0;i<array.size;i++){
+        while( diff < (array.arr[i]-i)){
+            printf("Element: %d\n",diff+i);
+            diff++;
+        }
+    }
+}
 
 int main(){
     struct Array array;
@@ -26,6 +35,8 @@ int main(){
         scanf("%d",&array.arr[i]);
     }
     
-    printf("Missing no is :%d\n",missingOneElement(array));
+    // printf("Missing no is :%d\n",missingOneElement(array));
+    printf("Missing Elements \n");
+    missingMultipleElements(array);
     return 0;
 }
