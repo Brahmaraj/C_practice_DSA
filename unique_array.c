@@ -14,7 +14,7 @@ int countUniqe(struct Array old_array){
     new_array.length = 1;
     new_array.arr[0] = old_array.arr[0];
     int j,i;
-    for(i=1;i<old_array.length;i++){
+    for(i=1;i<old_array.length-1;i++){
         new_array.arr[i]=old_array.arr[(new_array.arr[i-1])];
         new_array.length++;
         for(j=0;j<new_array.length;j++){
