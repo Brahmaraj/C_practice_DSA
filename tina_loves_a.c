@@ -5,17 +5,40 @@
 #include <stdio.h>
 #include <string.h>
 
+// int main(){
+//     char a_str[] = "string";
+//     printf("%s\n",a_str);
+//     char *new_str;
+//     gets(new_str);
+//     printf("%s",new_str);
+//     for(int i=0;new_str[i]!='\0';i++){
+//         printf("%c\n",new_str[i]);
+//     }
+//     int j;
+//     for(j=0;new_str[j]!='\0';j++){
+//     }
+//     printf("%d",j);
+// }
+
 int main(){
-    char a_str[] = "string";
-    printf("%s\n",a_str);
-    char new_str[20];
-    gets(new_str);
-    printf("%s",new_str);
-    for(int i=0;new_str[i]!='\0';i++){
-        printf("%c\n",new_str[i]);
+    int n;
+    scanf("%d\n",&n);
+    char *new_str;
+    while (n--)
+    {
+        int count=0,count_a=0;
+        gets(new_str);
+        printf("%s",new_str);
+        for(int i=0;new_str[i]!='\0';i++){
+            if(new_str[i]=='a')
+                count_a++;
+            count++;
+        }
+        if(count_a>count/2)
+            printf("\n%d\n",count);
+        else
+            printf("\n%d\n",(count_a+(count_a-1)));
+        free(new_str);
     }
-    int j;
-    for(j=0;new_str[j]!='\0';j++){
-    }
-    printf("%d",j);
+    
 }
