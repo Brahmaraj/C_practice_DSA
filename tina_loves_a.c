@@ -3,42 +3,22 @@
 // S. She would like to know what is the length of the longest string remaining after erasing some characters (possibly zero) to get a good string. It is guaranteed that the string has at least one a in it, so the answer always exists.
 
 #include <stdio.h>
-#include <string.h>
-
-// int main(){
-//     char a_str[] = "string";
-//     printf("%s\n",a_str);
-//     char *new_str;
-//     gets(new_str);
-//     printf("%s",new_str);
-//     for(int i=0;new_str[i]!='\0';i++){
-//         printf("%c\n",new_str[i]);
-//     }
-//     int j;
-//     for(j=0;new_str[j]!='\0';j++){
-//     }
-//     printf("%d",j);
-// }
-
-int main(){
-    int n;
-    scanf("%d\n",&n);
-    char *new_str;
-    while (n--)
-    {
-        int count=0,count_a=0;
-        gets(new_str);
-        printf("%s",new_str);
-        for(int i=0;new_str[i]!='\0';i++){
-            if(new_str[i]=='a')
-                count_a++;
+#include<string.h>
+int main()
+{
+  int test;
+  scanf("%d", &test);
+  while(test--){
+    char s[10000000];
+    scanf("%s", s);
+    int count=0;
+    for(int i=0; i<strlen(s); i++)
+        if(s[i]=='a')
             count++;
-        }
-        if(count_a>count/2)
-            printf("\n%d\n",count);
-        else
-            printf("\n%d\n",(count_a+(count_a-1)));
-        free(new_str);
+    if(count > strlen(s)/2)
+      printf("%d\n",strlen(s));
+    else{
+      printf("%d\n",(count-1)*2 + 1);
     }
-    
+  }
 }
