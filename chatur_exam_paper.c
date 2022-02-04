@@ -8,23 +8,28 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
+#define MAX 10000000
 int main(){
     int test;
     scanf("%d",&test);
     while(test--){
-        char s[10000000];
-        scanf("%s", s);
-        int count=0;
-        for(int i=0,j=strlen(s) ; i<strlen(s)/2 ; i++,j--){
-            if(s[i]==s[j])  
-                count++;
-            else {
-                while(s[i]<s[j])
-                    count++;
+        //char s[10000000];
+        char s[30];
+        scanf("%s",&s);
+        int n = strlen(s);
+        printf("%d\n",n);
+        bool palindrome = true;
+        for(int i=0,j=n-1;i<n/2;i++,j--){
+            if(s[i]!=s[j]){
+                palindrome = false;
             }
         }
-        printf("%d",count);
-        return 0;
+        if(palindrome)
+            printf("Plaindrome\n");
+        else
+            printf("Not a plaindrome\n");  
     }
+    return 0;
 }

@@ -10,7 +10,7 @@ int main()
   scanf("%d", &test);
   while(test--){
     char s[10000000];
-    scanf("%s", s);
+    scanf("%s", &s);
     int count=0;
     for(int i=0; i<strlen(s); i++)
         if(s[i]=='a')
